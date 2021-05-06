@@ -69,8 +69,48 @@ p outlier_number([4, 1, 3, 5, 9])
 
 =end
 
-#! :
+=begin
+#! Convert All Array Items to String:
 
+#* Shortest solution:
+def parse_list(a)
+	a.map(&:to_s)
+end
+
+def parse_list(arr)
+	arr.map{|i| i.to_s}
+end
+
+#* Old Way:
+def parse_list(arr)
+	answer = []
+	counter = 0
+	length = arr.length
+	while counter < length
+		item = arr[counter]
+		revised = item.to_s
+		answer.push(revised)
+		counter += 1
+	end
+	return answer
+end
+def parse_list(arr)
+	new_arr = []
+	arr.map {|item|
+		new_arr << item.to_s
+	}
+	return new_arr
+end
 
 #? EXAMPLES ----------------------------------------------------
 
+p parse_list([1, 2, "a", "b"]) 
+# ➞ ["1", "2", "a", "b"]
+p parse_list(["abc", 123, "def", 456]) 
+# ➞ ["abc", "123", "def", "456"]
+p parse_list([1, 2, 3, 17, 24, 3, "a", "123b"]) 
+# ➞ ["1", "2", "3", "17", "24", "3", "a", "123b"]
+p parse_list([]) 
+# ➞ []
+
+=end
