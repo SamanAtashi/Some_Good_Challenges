@@ -4,3 +4,4 @@
 2- Convert All Array Items to String
 3- Abbreviate Sentence
 4- Is Valid Email
+5- Array Translate

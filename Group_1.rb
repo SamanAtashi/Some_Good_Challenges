@@ -220,3 +220,41 @@ puts is_valid_email("jdoe42@gmail.com") # => false
 puts is_valid_email("jdoegmail.com")    # => false
 puts is_valid_email("az@email")         # => false
 =end
+
+=begin
+#! Array Translate:
+
+def array_translate(arr)
+    nums = []
+    strs = []
+    # iterate and separate nums and strs into 2 different arr
+    arr.each do |i|
+        if i.is_a?(Numeric)
+            nums<<i
+        else
+            strs<<i
+        end
+    end
+    p nums 
+    p strs
+    # make new str and concate each one of strs , num times
+    result=""
+    j=0
+    while j<nums.size
+        nums[j].times do
+            result+=strs[j]
+        end
+        j+=1
+    end
+    return result
+end
+
+
+#? EXAMPLES ----------------------------------------------------
+p array_translate(["Cat", 2, "Dog", 3, "Mouse", 1]); # => "CatCatDogDogDogMouse"
+puts
+
+p array_translate(["red", 3, "blue", 1]); # => "redredredblue"
+puts
+
+=end
