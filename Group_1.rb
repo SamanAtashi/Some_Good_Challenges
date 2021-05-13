@@ -162,8 +162,61 @@ end
 
 
 #? EXAMPLES ----------------------------------------------------
-
 p abbreviate_sentence("follow the yellow brick road") # => "fllw the yllw brck road"
 p abbreviate_sentence("what a wonderful life")        # => "what a wndrfl life"
 =end
 
+=begin
+#! Is Valid Email:
+# For simplicity, we'll consider an email valid when it satisfies all of the following:
+# - contains exactly one @ symbol
+# - contains only lowercase alphabetic letters before the @
+# - contains exactly one . after the @
+
+#* with RegEx:
+
+# def is_valid_email(str)
+#     if str.count("@")==1
+#         splitted = str.split("@")
+#         if splitted[0].downcase==splitted[0]
+#             return false if splitted[0].match?(/[^a-z]/)
+#             return splitted[1].count(".")==1
+#         end
+#     end
+#         return false
+# end
+
+#* simple logic nad tools:
+
+def is_valid_email(str)
+    parts = str.split("@")
+    left = parts[0]
+    right = parts[1]
+    alphabetic='abcdefghijklmnopqrstuvwxyz'
+
+    # whether we have "@" or not
+    if parts.length != 2
+        return false
+    end
+
+    left.each_char do |char|
+        if !alphabetic.include?(char)
+            return false
+        end
+    end
+
+    if right.split(".").length == 2
+        return true
+    else
+        return false
+    end
+end
+
+#? EXAMPLES ----------------------------------------------------
+puts is_valid_email("abc@xy.z")         # => true
+puts is_valid_email("jdoe@gmail.com")   # => true
+puts is_valid_email("jdoe@g@mail.com")  # => false
+puts is_valid_email("jdoe42@gmail.com") # => false
+puts is_valid_email("jdoegmail.com")    # => false
+puts is_valid_email("az@email")         # => false
+=end
