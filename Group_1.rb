@@ -114,3 +114,147 @@ p parse_list([])
 # ➞ []
 
 =end
+
+=begin
+#! Abbreviate Sentence:
+
+#* Straight forward method
+def abbreviate_sentence(sent)
+  new_arr = []
+  sent.split(" ").each do |item|
+     if item.size>4 
+        new_arr<<item.split(/[aeoiu]/).join
+     else
+        new_arr<<item
+     end
+  end
+return new_arr.join(" ")
+end
+
+#* With the Helper method
+def abbreviate_sentence(sent)
+    words=sent.split(" ")
+    new_words=[]
+
+    words.each do |word|
+        if word.length > 4 
+            new_word=abbreviate_word(word)
+            new_words<<new_word
+        else
+            new_words<<word
+        end
+    end
+    new_sent = new_words.join(" ")
+end
+
+def abbreviate_word(word)
+    vowels="aeoiu"
+    no_vowels=""
+
+    word.each_char do |char|
+        if !vowels.include?(char)
+            no_vowels+=char
+        end
+    end
+    return no_vowels
+end
+
+
+
+#? EXAMPLES ----------------------------------------------------
+p abbreviate_sentence("follow the yellow brick road") # => "fllw the yllw brck road"
+p abbreviate_sentence("what a wonderful life")        # => "what a wndrfl life"
+=end
+
+=begin
+#! Is Valid Email:
+# For simplicity, we'll consider an email valid when it satisfies all of the following:
+# - contains exactly one @ symbol
+# - contains only lowercase alphabetic letters before the @
+# - contains exactly one . after the @
+
+#* with RegEx:
+
+# def is_valid_email(str)
+#     if str.count("@")==1
+#         splitted = str.split("@")
+#         if splitted[0].downcase==splitted[0]
+#             return false if splitted[0].match?(/[^a-z]/)
+#             return splitted[1].count(".")==1
+#         end
+#     end
+#         return false
+# end
+
+#* simple logic nad tools:
+
+def is_valid_email(str)
+    parts = str.split("@")
+    left = parts[0]
+    right = parts[1]
+    alphabetic='abcdefghijklmnopqrstuvwxyz'
+
+    # whether we have "@" or not
+    if parts.length != 2
+        return false
+    end
+
+    left.each_char do |char|
+        if !alphabetic.include?(char)
+            return false
+        end
+    end
+
+    if right.split(".").length == 2
+        return true
+    else
+        return false
+    end
+end
+
+#? EXAMPLES ----------------------------------------------------
+puts is_valid_email("abc@xy.z")         # => true
+puts is_valid_email("jdoe@gmail.com")   # => true
+puts is_valid_email("jdoe@g@mail.com")  # => false
+puts is_valid_email("jdoe42@gmail.com") # => false
+puts is_valid_email("jdoegmail.com")    # => false
+puts is_valid_email("az@email")         # => false
+=end
+
+=begin
+#! Array Translate:
+
+def array_translate(arr)
+    nums = []
+    strs = []
+    # iterate and separate nums and strs into 2 different arr
+    arr.each do |i|
+        if i.is_a?(Numeric)
+            nums<<i
+        else
+            strs<<i
+        end
+    end
+    p nums 
+    p strs
+    # make new str and concate each one of strs , num times
+    result=""
+    j=0
+    while j<nums.size
+        nums[j].times do
+            result+=strs[j]
+        end
+        j+=1
+    end
+    return result
+end
+
+
+#? EXAMPLES ----------------------------------------------------
+p array_translate(["Cat", 2, "Dog", 3, "Mouse", 1]); # => "CatCatDogDogDogMouse"
+puts
+
+p array_translate(["red", 3, "blue", 1]); # => "redredredblue"
+puts
+
+=end
