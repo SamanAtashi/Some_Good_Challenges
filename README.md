@@ -7,3 +7,4 @@
     5- Array Translate
     6- Advanced Method Exercises:
         - Coprimes
+        - Adult_in_group?
