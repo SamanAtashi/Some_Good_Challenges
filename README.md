@@ -5,3 +5,5 @@
 3- Abbreviate Sentence
 4- Is Valid Email
 5- Array Translate
+6- Advanced Method Exercises:
+    1- Coprimes
