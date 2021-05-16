@@ -4,9 +4,11 @@
 def max_inject(*arr)
     arr.inject do |acc,curr|
         if acc<=curr
-            acc = curr
+            curr
+        else
+#! very important: if you do not say else inject automatically returns nil.
+            acc
         end
-        acc
     end
 end
 
