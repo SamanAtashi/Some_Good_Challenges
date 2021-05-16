@@ -4,9 +4,7 @@
 # is passed in, then 5 should be used as the length.
 
 def filter_lengths(strings, len=5)
-    strings.select do |item|
-        item.size >= len
-    end
+     strings.select { |item| item.size >= len }
 end
 
 p filter_lengths(["pear", "dragonfruit", "fig", "clementine"], 4)   # => ["pear", "dragonfruit", "clementine"]
