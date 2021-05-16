@@ -2,10 +2,14 @@
 # and returns the sum of all numbers in the array.
 
 
+# def multi_dimensional_sum(array)
+#     array.flatten.inject do |acc,curr|
+#         acc+curr
+#     end
+# end
+
 def multi_dimensional_sum(array)
-    array.flatten.inject do |acc,curr|
-        acc+curr
-    end
+    array.flatten.sum
 end
 
 arr_1 = [
