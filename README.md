@@ -13,3 +13,7 @@
         - Max_inject
         - Union
         - Multidementional_sum
+    7- Algorithmic Method Exercises:
+        - Swapper
+        - is_sorted
+        - Bubble_sort
