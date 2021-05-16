@@ -3,9 +3,14 @@
 # The method should return false otherwise.
 
 def only_vowels?(str)
-    to_check = "aeoiu"
-    str.each_char { |char| return false if !to_check.include?(char) }
+    vowels = "aeoiu"
+    str.each_char { |char| return false if !vowels.include?(char) }
     return true
+end
+
+def only_vowels?(str)
+    vowels = "aeoiu"
+    str.split("").all? { |char| vowels.include?(char) }
 end
 
 p only_vowels?("aaoeee")  # => true
