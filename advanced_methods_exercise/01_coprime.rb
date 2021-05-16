@@ -8,8 +8,23 @@ def coprime?(num_1, num_2)
     (2..9).each do |item|
         return false if (num_1%item)==0 && (num_2%item==0)
     end
-    return true
+    true
 end
+
+def coprime?(num_1, num_2)
+    # iterate till one of the nums 
+    (2..num_1).each do |item|
+        return false if (num_1%item)==0 && (num_2%item==0)
+    end
+    true
+end
+
+def coprime?(num_1, num_2)
+    (2..num_1).none? do |item|
+        (num_1%item)==0 && (num_2%item==0)
+    end
+end
+
 
 p coprime?(25, 12)    # => true
 p coprime?(7, 11)     # => true
