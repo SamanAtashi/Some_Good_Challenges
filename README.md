@@ -11,3 +11,4 @@
         - Only_vowels
         - Filter_lengths
         - Max_inject
+        - Union
