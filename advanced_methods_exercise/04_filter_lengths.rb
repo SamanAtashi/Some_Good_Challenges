@@ -3,6 +3,11 @@
 # that have at least the given length. The length argument should be optional; if no length
 # is passed in, then 5 should be used as the length.
 
+def filter_lengths(strings, len=5)
+    strings.select do |item|
+        item.size >= len
+    end
+end
 
 p filter_lengths(["pear", "dragonfruit", "fig", "clementine"], 4)   # => ["pear", "dragonfruit", "clementine"]
 p filter_lengths(["pear", "dragonfruit", "fig", "clementine"])      # => ["dragonfruit", "clementine"]
