@@ -8,4 +8,5 @@
     6- Advanced Method Exercises:
         - Coprimes
         - Adult_in_group?
-        - only_vowels
+        - Only_vowels
+        - Filter_lengths
