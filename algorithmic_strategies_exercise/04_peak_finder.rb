@@ -23,6 +23,24 @@ def peak_finder(arr)
 	new_arr
 end
 
+def peak_finder(arr)
+    peaks = []
+    
+    arr.each_with_index do |item , idx|
+        left = arr[idx-1]
+        right = arr[idx+1]
+        
+        if idx == 0 && item > right
+            peaks<<item
+        elsif idx == arr.length-1 && item > left
+            peaks<<item
+        elsif item > left && item > right
+            peaks<<item
+        end
+    end
+    peaks
+end
+
 p peak_finder([1, 3, 5, 4]) # => [5]
 p peak_finder([4, 2, 3, 6, 10]) # => [4, 10]
 p peak_finder([4, 2, 11, 6, 10]) # => [4, 11, 10]
