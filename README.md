@@ -17,3 +17,5 @@
         - Swapper
         - is_sorted
         - Bubble_sort
+        - Peak finder
+        - Compress str
