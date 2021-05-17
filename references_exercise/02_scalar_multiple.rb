@@ -6,8 +6,11 @@
 # to the object_id of the returned array. The exact object_ids you get back don't matter. We just want the ids
 # to be the same before and after calling your method.
 
-def scalar_multiple!(array, multiplier)
-
+def scalar_multiple!(array, mul)
+    array.each_with_index do |item,idx|
+        array[idx]*=mul
+    end
+    return array
 end
 
 
@@ -17,6 +20,7 @@ result_1 = scalar_multiple!(array_1, 3)
 p result_1                                      # => [21, 0, 12]
 p result_1.object_id                            # => 70326264380840
 
+p "------------------"
 
 array_2 = [90, 30, 4, 12]
 p array_2.object_id                             # => 70326264378100
