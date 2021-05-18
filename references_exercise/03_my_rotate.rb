@@ -11,7 +11,13 @@
 
 
 def my_rotate!(arr, amt)
-    
+    i=0
+    while i<2
+        
+        arr+=arr.shift.split("")
+        i+=1
+    end
+    return arr
 end
 
 
@@ -22,15 +28,15 @@ p result_1                          # => ["c", "d", "a", "b"]
 p result_1.object_id                # => 70354216023780
 
 
-array_2 = ["NOMAD", "SOHO", "TRIBECA"]
-p array_2.object_id                 # => 70354216019660
-result_2 = my_rotate!(array_2, 1)
-p result_2                # => ["SOHO", "TRIBECA", "NOMAD"]
-p result_2.object_id                # => 70354216019660
+# array_2 = ["NOMAD", "SOHO", "TRIBECA"]
+# p array_2.object_id                 # => 70354216019660
+# result_2 = my_rotate!(array_2, 1)
+# p result_2                # => ["SOHO", "TRIBECA", "NOMAD"]
+# p result_2.object_id                # => 70354216019660
 
 
-array_3 = ["a", "b", "c", "d"]
-p array_3.object_id                 # => 70354216016500
-result_3 = my_rotate!(array_3, -3)
-p result_3                          # => ["b", "c", "d", "a"]
-p result_3.object_id                # => 70354216016500
+# array_3 = ["a", "b", "c", "d"]
+# p array_3.object_id                 # => 70354216016500
+# result_3 = my_rotate!(array_3, -3)
+# p result_3                          # => ["b", "c", "d", "a"]
+# p result_3.object_id                # => 70354216016500
