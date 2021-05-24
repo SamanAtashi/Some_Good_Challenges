@@ -11,11 +11,18 @@ def partition(arr, num)
     new_arr
 end
 
-def merge(h_1, h_2)
+def merge(hash_1, hash_2)
     new_hash = Hash.new
-    h_1_k = h_1.keys
-    h_2_k = h_2.keys
-    h_1_v = h_1.values
-    h_2_v = h_2.values
+    i=0
+    while i<hash_1.size
+        new_hash[hash_1.keys[i]]=hash_1.values[i]
+        i+=1
+    end
+    j=0
+    while j<hash_2.size
+        new_hash[hash_2.keys[j]]=hash_2.values[j]
+        j+=1
+    end
     new_hash
 end
+
