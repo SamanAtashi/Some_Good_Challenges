@@ -13,6 +13,10 @@ def scalar_multiple!(array, mul)
     return array
 end
 
+def scalar_multiple!(array, mul)
+   array.map! { |ele| ele*mul }
+end
+
 
 array_1 = [7, 0, 4]
 p array_1.object_id                             # => 70326264380840

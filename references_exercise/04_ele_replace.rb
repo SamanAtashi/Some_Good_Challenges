@@ -18,6 +18,16 @@ def ele_replace!(array, hash)
     return array
 end
 
+def ele_replace!(array, hash)
+    array.map! do |ele|
+        if hash.has_key?(ele)
+            hash[ele]
+        else
+            ele
+        end
+    end
+end
+
 
 array_1 = [4, 2, 0, 2]
 p array_1.object_id         # => 70119569670520
