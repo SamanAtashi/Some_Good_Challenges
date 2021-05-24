@@ -6,12 +6,12 @@
 
 require "byebug"
 
-little_words = [ "and", "the", "over", "a", "on", "of" ]
 
 def titleize(title)
+little_words = [ "and", "the", "over", "a", "on", "of" ]
   words = title.split(" ")
 
-  titleized_words = words.map.with_index do |i, word|
+  titleized_words = words.map.with_index do |word,i|
     if i == 0 || !little_words.include?(word)
       word.capitalize
     else
@@ -21,3 +21,9 @@ def titleize(title)
 
   titleized_words.join(" ")
 end
+
+# expect(titleize("jaws")).to eq("Jaws")
+# expect(titleize("david copperfield")).to eq("David Copperfield")
+# expect(titleize("war and peace")).to eq("War and Peace")
+# expect(titleize("the bridge on the river kwai")).to eq("The Bridge on the River Kwai")
+# 
