@@ -7,7 +7,15 @@
 # to be the same before and after calling your method.
 
 def ele_replace!(array, hash)
-
+    # iterate arr if key == to item in arr --> ele_replace
+    array.each_with_index do |item, idx|
+        hash.keys.each do |j|
+            if j==item
+                array[idx]=hash[j]
+            end
+        end
+    end
+    return array
 end
 
 
