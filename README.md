@@ -19,3 +19,9 @@
         - Bubble_sort
         - Peak finder
         - Compress str
+    8- Reference:
+        - replace_char_at
+        - scalar_multiple
+        - my_rotate
+        - ele_replace
+        - grid
