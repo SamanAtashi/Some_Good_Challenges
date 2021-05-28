@@ -29,8 +29,9 @@ class Dog
         @favorite_foods
     end
     def favorite_food?(item)
-        @favorite_foods.any? do |food|
-            item.downcase==food.downcase
-        end
+        # @favorite_foods.any? do |food|
+        #     item.downcase==food.downcase
+        # end
+        @favorite_foods.map(&:downcase).include?(item.downcase)
     end
 end
