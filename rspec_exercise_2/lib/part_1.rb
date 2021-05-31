@@ -26,12 +26,10 @@ def merge(hash_1, hash_2)
     new_hash
 end
 
-def cencor(sen)
-    c = ["gosh", "darn", "shoot"]
-    sen.downcase.split(" ").each do |ele|
-        if c.include?(ele)
-            ele.gsub(/aeoiue/,*)
-        end
-    end
-    sen
+def censor(sen,curse_words)
+    
+end 
+
+def power_of_two?(num)
+
 end
