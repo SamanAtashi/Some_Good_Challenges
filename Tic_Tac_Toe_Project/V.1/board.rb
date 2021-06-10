@@ -1,51 +1,69 @@
 class Board
     def initialize
-        @grid=[["1", "2", "3"], ["4", "5", "6"], ["7", "8", "9"]]
-        # @grid=[["X", "X", "X"], ["X", "X", "X"], ["X", "X", "X"]]
+        @grid=[
+            ["1","2","3"],
+            ["4","5","6"],
+            ["7","8","9"],
+        ]
     end
-
+    
+    def printing
+        print " +---+---+---+ \n"
+        @grid.each do |sub_arr|
+            sub_arr.each do |ele|
+                print " | "
+                print ele
+            end
+            print " | \n"
+            print " +---+---+---+ \n"
+        end
+    end
+    
     def valid?(pos)
         pos.each do |ele|          
-            if (0..2).include?(ele)==false
-                return false
-            end
+            return false if (0..2).include?(ele)==false
         end
         return true
     end
-    #! Dependent -------------------------------------
+
     def empty?(pos)
-      ["1","2","3","4","5","6","7","8","9"].include?(@grid[pos[0]][pos[1]])
+        ["1","2","3","4","5","6","7","8","9"].include?(@grid[pos[0]][pos[1]])
     end
 
     def place_mark(position, mark)
         if valid?(position) && empty?(position)
             @grid[position[0]][position[1]] = mark
         else
-            return "Invalid mark"
+            puts "Invalid mark"
+            puts "Try again"
         end
     end
 
-    def prints
+    def win_row?(mark)
         @grid.each do |sub_arr|
-            print sub_arr
-            puts
+            return true if sub_arr.all? { |ele| ele==mark }
         end
-    end
-    
-    def win_row?(mark) 
-        @grid.any? { |row| row.all? { |ele| ele==mark } }
+        return false
     end
 
     def win_col?(mark)
         i=0
-        temp=[]
+        count=0
         while i<@grid.size
-            @grid.each do |col|
-                temp<<col[i] if col[i]==mark
+            j=0
+            while j<@grid[i].size
+                if @grid[j][i]==mark
+                    count+=1
+                end
+                j+=1
             end
+            if count==3
+                return true
+            end
+            count=0
             i+=1
         end
-        temp.size>=3
+        return false
     end
 
     def win_diagonal?(mark)
@@ -77,21 +95,46 @@ class Board
         false
     end
 
-    def win(mark)
-        return true if win_diagonal?(mark) || win_row?(mark) || win_col?(mark)
-        false
-    end
-    
-    #! Dependent -------------------------------------
-    def empty_positions?
-        @grid.each do |sub_arr|
-            sub_arr.each do |ele|
-                if ["1","2","3","4","5","6","7","8","9"].include?(ele)
-                    return true
-                end
-            end
+    def win?(mark)
+        if win_diagonal?(mark) || win_col?(mark) || win_row?(mark)
+            return true
         end
         false
     end
 
+    def empty_positions?
+        @grid.each do |sub_arr|
+            sub_arr.each do |ele|
+                return true if ["1","2","3","4","5","6","7","8","9"].include?(ele)
+            end
+        end
+        false
+    end
 end
+
+# b= Board.new
+# b.printing
+# puts "------------------"
+# b.place_mark([0, 0], "X")
+# b.place_mark([1, 0], "X")
+# b.place_mark([2, 0], "X")
+# b.place_mark([0, 1], "X")
+# b.place_mark([1, 1], "X")
+# b.place_mark([2, 1], "X")
+
+# b.place_mark([0, 0], "X")
+# b.place_mark([0, 1], "X")
+# b.place_mark([0, 2], "X")
+# b.place_mark([1, 2], "X")
+# b.place_mark([1, 1], "X")
+# b.place_mark([1, 0], "X")
+# b.place_mark([2, 2], "X")
+# b.place_mark([2, 1], "X")
+# b.place_mark([2, 0], "X")
+
+
+# b.printing
+# puts "------------------"
+
+
+# p b.empty_positions?
